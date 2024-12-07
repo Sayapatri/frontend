@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <script src="/assets/js/dashboard.js" defer></script>
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="/assets/js/stripeCheckout.js" defer></script>
+</head>
+
+
+<body>
+    <button id="logout">Logout</button>
+    <div id="dashboard">
+        <h1>Welcome, <span id="username"></span>!</h1>
+        <p>Your current plan: <span id="userPlan"></span></p>
+    
+        <button id="upgradeButton" style="display: none;">Upgrade to Premium</button>
+    </div>
+    
+   <h1>Welcome to Your Dashboard</h1>
+
+    <div class="main-container">
+        <!-- Your Alerts Section -->
+        <div class="alerts-container">
+            <h2>Your Alerts</h2>
+            <ul id="alerts">
+                <li>No alerts yet. Add one below!</li>
+            </ul>
+        </div>
+
+        <!-- Add Alert Form Section -->
+        <div class="form-container">
+            <h2>Add Alert</h2>
+            <form id="alert-form">
+                <label for="cryptocurrency">Cryptocurrency:</label>
+                <input type="text" id="cryptocurrency" placeholder="Enter cryptocurrency" required autocomplete="off">
+        <div id="autocomplete-container" class="autocomplete-suggestions"></div>
+
+                <label for="threshold">Threshold:</label>
+                <input type="number" id="threshold" placeholder="Enter threshold value" min="0" step="0.0000000000000001" required>
+                
+
+                <button type="submit">Add Alert</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Predefined list of cryptocurrencies
+        const cryptocurrencies = [
+            "axlweth", "axo", "axol", "axondao-governance-token", "ayin",
+            "azbit", "azcoiner", "azit", "azizi", "azuki", "azuro-protocol",
+            "azur-token", "b0rder1ess", "b1coin", "b20", "b2baby", "b2b-token",
+            "b2share", "baanx", "baasid", "baba", "bitcoin"
+        ];
+
+        const inputField = document.getElementById("cryptocurrency");
+        const suggestionsContainer = document.getElementById("autocomplete-container");
+
+        // Event listener for input field
+        inputField.addEventListener("input", () => {
+            const query = inputField.value.toLowerCase();
+            suggestionsContainer.innerHTML = ""; // Clear previous suggestions
+
+            if (query) {
+                // Filter and display matching suggestions
+                const matches = cryptocurrencies.filter(crypto =>
+                    crypto.toLowerCase().includes(query)
+                );
+
+                matches.forEach(match => {
+                    const suggestionDiv = document.createElement("div");
+                    suggestionDiv.textContent = match;
+                    suggestionDiv.classList.add("autocomplete-suggestion");
+                    suggestionDiv.addEventListener("click", () => {
+                        inputField.value = match; // Set input value to selected suggestion
+                        suggestionsContainer.innerHTML = ""; // Clear suggestions
+                    });
+                    suggestionsContainer.appendChild(suggestionDiv);
+                });
+            }
+        });
+
+        // Hide suggestions when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!suggestionsContainer.contains(e.target) && e.target !== inputField) {
+                suggestionsContainer.innerHTML = "";
+            }
+        });
+
+        // Handle form submission
+        const form = document.getElementById("alert-form");
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const cryptocurrency = inputField.value;
+            const threshold = document.getElementById("threshold").value;
+
+            if (!cryptocurrencies.includes(cryptocurrency.toLowerCase())) {
+                alert("Please select a valid cryptocurrency from the list.");
+                return;
+            }
+
+            alert(`Alert added for ${cryptocurrency} with a threshold of ${threshold}.`);
+        });
+    </script>
+</body>
+</html>

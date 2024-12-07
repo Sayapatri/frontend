@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Successful</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #131413, #81c784);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        .countdown {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        a {
+            color: #070707;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #4caf50;
+        }
+    </style>
+    <script>
+        let countdown = 9; // Countdown starts at 4 seconds
+
+        // Update the countdown every second
+        const countdownElement = () => {
+            const timerElement = document.getElementById("countdown-timer");
+            if (countdown > 0) {
+                timerElement.textContent = countdown;
+                countdown--;
+            } else {
+                // Redirect to the login page
+                window.location.href = "login.html";
+            }
+        };
+
+        setInterval(countdownElement, 1000);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Signup Successful!</h1>
+        <p>Thank you for signing up. You can now proceed to the login page.</p>
+        <p class="countdown">Redirecting to the login page in <span id="countdown-timer">4</span> seconds...</p>
+        <a href="login.html">Go to Login</a>
+    </div>
+</body>
+</html>
