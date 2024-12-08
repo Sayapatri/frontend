@@ -4,12 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="signup.js" defer></script>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <script src="/assets/js/signup.js" defer></script>
-    
+        /* Body Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #33334d);
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 1rem;
+            background: url('logo-placeholder.png') no-repeat center/contain;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ebebeb;
+            text-align: center;
+            
+        }
+
+        /* Container Styles */
+        .container {
+            background: #2e2e44;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Title */
+        h1 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            color: #ffffff;
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            background: #44475a;
+            border: none;
+            border-radius: 5px;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #ffffff;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #bbbbbb;
+        }
+
+        button {
+            background: #4caf50;
+            border: none;
+            border-radius: 5px;
+            padding: 0.75rem;
+            font-size: 1rem;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #43a047;
+        }
+
+        p {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        a {
+            color: #4caf50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #81c784;
+        }
+        .logo {
+        width: 50px;
+        height: 50px;
+        margin-right: 1rem;
+    }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            input,
+            button {
+                font-size: 0.9rem;
+                padding: 0.65rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    
+    <p class="tagline">Stay Ahead in Crypto - Real-Time Alerts for Smarter Traders</p>
+    <br>
     <div class="container">
         <h1>Signup</h1>
         <form id="signup-form">
@@ -18,7 +159,7 @@
             <input type="password" id="password" name="password" placeholder="Password" required>
             <button type="submit">Signup</button>
         </form>
-        <p>Already a user? <a href="login.html" style="color: #4caf50; text-decoration: none;">Login</a></p>
+        <p>Already a user? <a href="login.html">Login</a></p>
     </div>
 </body>
 </html>
