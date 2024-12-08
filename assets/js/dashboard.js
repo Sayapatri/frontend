@@ -14,7 +14,7 @@ document.getElementById('logout').addEventListener('click', () => {
 
 // Fetch user alerts
 async function fetchAlerts() {
-    const response = await fetch('https://crypto-alert-620r.onrender.com:3000/alerts/user', {
+    const response = await fetch('https://crypto-alert-620r.onrender.com/alerts/user', {
         headers: { Authorization: `Bearer ${token}` },
     });
 
@@ -50,7 +50,7 @@ document.getElementById('alert-form').addEventListener('submit', async (e) => {
     const cryptocurrency = document.getElementById('cryptocurrency').value;
     const threshold = document.getElementById('threshold').value;
 
-    const response = await fetch('https://crypto-alert-620r.onrender.com:3000/alerts/add', {
+    const response = await fetch('https://crypto-alert-620r.onrender.com/alerts/add', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ document.getElementById('alert-form').addEventListener('submit', async (e) => {
 
 // Delete alert
 async function deleteAlert(alertId) {
-    const response = await fetch(`https://crypto-alert-620r.onrender.com:3000/alerts/delete/${alertId}`, {
+    const response = await fetch(`https://crypto-alert-620r.onrender.com/alerts/delete/${alertId}`, {
         method: 'DELETE',
         headers: {
             Authorization: `Bearer ${token}`,
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         // Fetch user details
-        const response = await fetch('https://crypto-alert-620r.onrender.com:3000/auth/me', {
+        const response = await fetch('https://crypto-alert-620r.onrender.com/auth/me', {
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -136,7 +136,7 @@ document.getElementById('upgradeButton').addEventListener('click', async () => {
 
     try {
         // Create payment intent
-        const response = await fetch('https://crypto-alert-620r.onrender.com:3000/auth/upgrade/payment', {
+        const response = await fetch('https://crypto-alert-620r.onrender.com/auth/upgrade/payment', {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -224,7 +224,7 @@ document.getElementById('upgradeButton').addEventListener('click', async () => {
                 alert('Payment failed: ' + error.message);
             } else if (paymentIntent.status === 'succeeded') {
                 // Confirm upgrade on the backend
-                const confirmResponse = await fetch('https://crypto-alert-620r.onrender.com:3000/auth/upgrade/confirm', {
+                const confirmResponse = await fetch('https://crypto-alert-620r.onrender.com/auth/upgrade/confirm', {
                     method: 'POST',
                     headers: {
                         Authorization: `Bearer ${token}`,
