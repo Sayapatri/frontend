@@ -4,7 +4,7 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    const response = await fetch('https://crypto-alert-620r.onrender.com:3000/auth/login', {
+    const response = await fetch('https://crypto-alert-620r.onrender.com/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
