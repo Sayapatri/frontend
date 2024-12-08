@@ -22,7 +22,7 @@ document.getElementById('alert-form').addEventListener('submit', function(event)
     };
 
     // Send the request to the backend API
-    fetch('http://localhost:3000/add-alert', {  // Adjust the URL as per your backend
+    fetch('https://crypto-alert-620r.onrender.com:3000/add-alert', {  // Adjust the URL as per your backend
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
