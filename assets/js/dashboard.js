@@ -14,7 +14,7 @@ document.getElementById('logout').addEventListener('click', () => {
 
 // Fetch user alerts
 async function fetchAlerts() {
-    const response = await fetch('http://localhost:3000/alerts/user', {
+    const response = await fetch('https://crypto-alert-620r.onrender.com:3000/alerts/user', {
         headers: { Authorization: `Bearer ${token}` },
     });
 
