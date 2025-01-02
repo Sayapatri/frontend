@@ -11,6 +11,13 @@ body {
     min-height: 100vh;
     position: relative;
 }
+p {
+    color: white; /* Make the paragraph text white */
+}
+
+p span {
+    color: white; /* Make the span text inside the paragraph white */
+}
 #logout {
     position: absolute;
     top: 20px;
@@ -124,6 +131,14 @@ button:hover {
     color: #fff;
 }
 
+button[type="submit"] {
+    padding: 6px 12px; /* Smaller padding for a more compact look */
+    font-size: 14px; /* Reduce the font size */
+    border-radius: 4px; /* Slightly smaller border-radius */
+    width: auto; /* Ensure the button doesn't stretch to fill container */
+    max-width: 200px; /* Set a maximum width for the button */
+    margin: 0 auto; /* Center align the button */
+}
 
 
 /* Styling for autocomplete suggestions */
@@ -177,4 +192,61 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .main-container {
+        flex-direction: column; /* Stack the alert and form containers vertically */
+        align-items: center;
+        width: 100%;
+    }
+
+    .alerts-container, .form-container {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px; /* Add some spacing between containers */
+    }
+
+    h1 {
+        font-size: 24px; /* Adjust heading size for small screens */
+        margin-top: 20px;
+    }
+
+    #logout {
+        top: 10px;
+        right: 10px;
+        padding: 8px;
+        font-size: 14px; /* Adjust button size for smaller screens */
+    }
+
+    .autocomplete-suggestions {
+        max-width: 100%; /* Ensure suggestions fit the screen */
+    }
+
+    input, button {
+        font-size: 14px; /* Reduce font size for better mobile readability */
+    }
+
+    button {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 20px; /* Further reduce the heading size for very small screens */
+    }
+
+    .alerts-container, .form-container {
+        padding: 15px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #logout {
+        padding: 5px;
+    }
 }
